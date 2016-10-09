@@ -1,4 +1,4 @@
-package com.myhexin.tinyioc.beans;
+package com.myhexin.tinyioc.beans.factory;
 
 import com.myhexin.tinyioc.BeanDefinition;
 
@@ -9,7 +9,7 @@ import com.myhexin.tinyioc.BeanDefinition;
 public interface BeanFactory {
 
 
-    public void registerBeanDefinition(String name, BeanDefinition beanDefinition);
+    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception;
 
 
     public Object getBean(String beanName);

@@ -6,6 +6,9 @@ step1:
     包含一个getBean()的方法
 
     不足：step1中提供的注册方法需要自己初始化beanDefinition类,在实际过程中我们希望容器来管理bean的创建
+
 step2:
     将BeanFactory替换成接口，而使用AbstractBeanFactory和AutowireCapableBeanFactory作为其实现。
     "AutowireCapable"的意思是“可自动装配的”，为我们后面注入属性做准备。
+step3:
+    bean的属性注入

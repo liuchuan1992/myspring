@@ -1,9 +1,12 @@
 package com.myhexin.tinyioc;
 
+import com.myhexin.tinyioc.beans.PropertyValues;
+
 /**
  * Created by lvcanfeng on 2016/10/8 22:32
- * 封装了bean 还可以包括一些bean的其他信息
- * modify 增加成员变量 beanName和beanCLass
+ * bean的内容及元数据，保存在BeanFactory中，包装bean的实体
+ * modify step2: 增加成员变量 beanName和beanCLass
+ * modify step3:增加成员变量propertyValues
  */
 public class BeanDefinition {
 
@@ -12,6 +15,8 @@ public class BeanDefinition {
     private String beanClassName;
 
     private Class beanClass;
+
+    private PropertyValues propertyValues;
 
     public Class getBeanClass() {
         return beanClass;
@@ -35,5 +40,13 @@ public class BeanDefinition {
 
     public void setBean(Object bean) {
         this.bean = bean;
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
     }
 }
