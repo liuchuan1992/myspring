@@ -1,0 +1,11 @@
+step1:
+    包括最简单的两个类：BeanFactory和BeanDefinition
+    beanFactory的功能是容器，存在类的工具。数据结构是一个Hashmap.
+    包括一个registerBeanDefinition(String beanName,BeanDefinition bean)和getBean(string beanName)
+    BeanDefinition代表bean实体类,包装了普通的bean,这样做的目的是可以封装更多的一些信息。
+    包含一个getBean()的方法
+
+    不足：step1中提供的注册方法需要自己初始化beanDefinition类,在实际过程中我们希望容器来管理bean的创建
+step2:
+    将BeanFactory替换成接口，而使用AbstractBeanFactory和AutowireCapableBeanFactory作为其实现。
+    "AutowireCapable"的意思是“可自动装配的”，为我们后面注入属性做准备。
