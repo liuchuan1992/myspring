@@ -7,6 +7,7 @@ import java.net.URLConnection;
 
 /**
  * Created by lvcanfeng on 2016/10/10 22:22
+ * 资源定位的实现类
  */
 public class UrlResource implements Resource {
 

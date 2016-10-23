@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 
 /**
  * Created by lvcanfeng on 2016/10/9 22:17
+ * 主要方法：doCreateBean(BeanDefinition beanDefinition) 将传入的beanDefinition组装成一个对象，并为他的field赋值
  */
 public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 
