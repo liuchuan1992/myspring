@@ -1,6 +1,5 @@
 package com.myhexin.tinyioc.beans;
 
-import com.myhexin.tinyioc.BeanDefinition;
 import com.myhexin.tinyioc.beans.io.ResourceLoader;
 
 import java.util.HashMap;

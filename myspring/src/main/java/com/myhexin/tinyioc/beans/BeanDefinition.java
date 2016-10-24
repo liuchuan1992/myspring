@@ -1,6 +1,4 @@
-package com.myhexin.tinyioc;
-
-import com.myhexin.tinyioc.beans.PropertyValues;
+package com.myhexin.tinyioc.beans;
 
 /**
  * Created by lvcanfeng on 2016/10/8 22:32

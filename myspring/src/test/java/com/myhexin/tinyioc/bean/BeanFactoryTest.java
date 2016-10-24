@@ -1,6 +1,8 @@
-package com.myhexin.tinyioc;
+package com.myhexin.tinyioc.bean;
 
 
+import com.myhexin.tinyioc.HelloWorldService;
+import com.myhexin.tinyioc.beans.BeanDefinition;
 import com.myhexin.tinyioc.beans.factory.AutowireCapableBeanFactory;
 import com.myhexin.tinyioc.beans.factory.BeanFactory;
 import com.myhexin.tinyioc.beans.io.ResourceLoader;
@@ -23,7 +25,7 @@ public class BeanFactoryTest {
 
         BeanFactory beanFactory = new AutowireCapableBeanFactory();
         for(Map.Entry<String,BeanDefinition> entry: xmlBeanDefinitionReader.getMap().entrySet()){
-            beanFactory.registerBeanDefinition(entry.getKey(),entry.getValue());
+        //    beanFactory.registerBeanDefinition(entry.getKey(),entry.getValue());
         }
 
         // 3.获取bean

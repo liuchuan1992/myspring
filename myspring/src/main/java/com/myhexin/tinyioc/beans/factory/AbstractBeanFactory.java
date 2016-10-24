@@ -1,6 +1,6 @@
 package com.myhexin.tinyioc.beans.factory;
 
-import com.myhexin.tinyioc.BeanDefinition;
+import com.myhexin.tinyioc.beans.BeanDefinition;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,7 +34,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
         return bean;
     }
 
-    @Override
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception{
         beanDefinitionMap.put(name,beanDefinition);
     }

@@ -1,6 +1,6 @@
 package com.myhexin.tinyioc.beans.factory;
 
-import com.myhexin.tinyioc.BeanDefinition;
+import com.myhexin.tinyioc.beans.BeanDefinition;
 import com.myhexin.tinyioc.beans.BeanReference;
 import com.myhexin.tinyioc.beans.PropertyValue;
 
