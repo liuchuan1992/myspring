@@ -10,6 +10,13 @@
 
     <bean name="helloWorldService" class="com.myhexin.tinyioc.HelloWorldService">
        <property name="txt" value="123"/>
+        <property name="student" ref="student"/>
+    </bean>
+
+    <bean name="student" class="com.myhexin.tinyioc.Student">
+        <property name="helloWorldService" ref="helloWorldService"/>
+        <property name="name" value="liuchuan"/>
+        <property name="age" value="12"/>
     </bean>
 
 </beans>

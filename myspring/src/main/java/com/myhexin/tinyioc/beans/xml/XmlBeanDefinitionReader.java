@@ -2,6 +2,7 @@ package com.myhexin.tinyioc.beans.xml;
 
 import com.myhexin.tinyioc.BeanDefinition;
 import com.myhexin.tinyioc.beans.AbstractBeanDefinitionReader;
+import com.myhexin.tinyioc.beans.BeanReference;
 import com.myhexin.tinyioc.beans.PropertyValue;
 import com.myhexin.tinyioc.beans.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -64,7 +65,18 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
             Node n = propertyNode.item(i);
             if(n instanceof Element){
                 Element e = (Element) n;
-                beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(e.getAttribute("name"),e.getAttribute("value")));
+                String name = e.getAttribute("name");
+                String value = e.getAttribute("value");
+                if(value != null &&value.length() > 0){
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name,value));
+                }else{
+                    String ref = e.getAttribute("ref");
+                    if(ref == null || ref.length() ==0){
+                        throw new IllegalArgumentException("Configuration problem: <property> element for property '" + name + "' must specify a ref or value");
+                    }
+                    BeanReference beanReference = new BeanReference(name);
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name,beanReference));
+                }
             }
         }
     }

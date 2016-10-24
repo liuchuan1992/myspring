@@ -11,4 +11,10 @@ step2:
     将BeanFactory替换成接口，而使用AbstractBeanFactory和AutowireCapableBeanFactory作为其实现。
     "AutowireCapable"的意思是“可自动装配的”，为我们后面注入属性做准备。
 step3:
-    bean的属性注入
+    bean的属性注入,使用PropertyValue 包装bean的属性字段,可以为bean的field赋值;
+
+Step4:
+    通过beanDefinitionReader读取xml配置文件,实现beanBefinition的配置读取;
+
+step5:
+    为bean注入bean;

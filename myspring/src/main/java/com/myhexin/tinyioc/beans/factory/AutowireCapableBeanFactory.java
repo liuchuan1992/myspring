@@ -1,6 +1,7 @@
 package com.myhexin.tinyioc.beans.factory;
 
 import com.myhexin.tinyioc.BeanDefinition;
+import com.myhexin.tinyioc.beans.BeanReference;
 import com.myhexin.tinyioc.beans.PropertyValue;
 
 import java.lang.reflect.Field;
@@ -14,6 +15,7 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
     @Override
     protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception{
         Object bean = createBeanInstance(beanDefinition);
+        beanDefinition.setBean(bean);
         applyPropertyValues(bean, beanDefinition);
         return bean;
     }
@@ -22,11 +24,22 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
         return beanDefinition.getBeanClass().newInstance();
     }
 
+    /**
+     * 判断propertyValue.getValue()的类型，如果是BeanReference 则需要注入实体类
+     * @param bean
+     * @param beanDefinition
+     * @throws Exception
+     */
     protected void applyPropertyValues(Object bean, BeanDefinition beanDefinition) throws Exception {
         for (PropertyValue pv : beanDefinition.getPropertyValues().getPropertyValues()) {
             Field declaredField = bean.getClass().getDeclaredField(pv.getName());
             declaredField.setAccessible(true);
-            declaredField.set(bean, pv.getObject());
+            Object obj = pv.getObject();
+            if(obj instanceof BeanReference){
+                BeanReference beanReference = (BeanReference) obj;
+                obj = getBean(beanReference.getName());
+            }
+            declaredField.set(bean, obj);
         }
     }
 }
