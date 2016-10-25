@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * @author : lvcf on 2016/10/24 23:15
- * @Description :容器实现类
+ * @Description :spring Ioc容器启动类
  */
 public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
 
@@ -30,6 +30,10 @@ public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
         }
     }
 
+    /**
+     * use for : 加载xml中的beanDefinition,并把所有的BeanDefinition 注册到AbstractApplication中的abstracyBeanFactory中
+     * @throws Exception
+     */
     public void refresh() throws Exception {
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
         beanDefinitionReader.loadBeanDefinitions(configLocation);
